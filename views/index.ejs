@@ -1,0 +1,154 @@
+<%- include ("partials/header") %>
+<body>
+    <% if (message.length > 0) { %>
+    <h1><%= message %></h1>
+    <% } %>
+    <% if (ten.length > 0) { %>
+    <h1><%= ten %></h1>
+    <% } %>
+
+    <!-- Button to Open the Modal -->
+    
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="dangnhap()">
+        Dang nhap
+    </button>
+
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="dangky()">
+        Dang ki
+    </button>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog  wrap-login100">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" id="dangnhap" data-toggle="tab" href="#dangnhap-content">Đăng Nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="dangky" data-toggle="tab" href="#dangky-content">Đăng kí</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane container active" id="dangnhap-content">
+                            <div class="limiter">
+                                <div class="container-login100">
+                                    <!-- <div class="wrap-login100"> -->
+                                    <form class="login100-form validate-form1" action="/login" method="POST">
+                                        
+                                        <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                                            <input class="input100 input-dangnhap" type="text" name="user">
+                                            <span class="focus-input100" data-placeholder="Email"></span>
+                                        </div>
+
+                                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                                            <span class="btn-show-pass">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </span>
+                                            <input class="input100 input-dangnhap" type="password" name="pass">
+                                            <span class="focus-input100" data-placeholder="Password"></span>
+                                        </div>
+
+                                        <div class="container-login100-form-btn">
+                                            <div class="wrap-login100-form-btn">
+                                                <div class="login100-form-bgbtn"></div>
+                                                <button class="login100-form-btn">
+                                                    Login
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane container fade" id="dangky-content">
+                            <div class="limiter">
+                                <div class="container-login100">
+                                    <!-- <div class="wrap-login100"> -->
+                                    <form class="login100-form validate-form2" action="/signup" method="POST">
+                                       
+
+                                        <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                                            <input class="input100 input-dangky" type="text" name="email">
+                                            <span class="focus-input100" data-placeholder="Email"></span>
+                                        </div>
+
+                                        <div class="wrap-input100 validate-input" data-validate="Enter name">
+                                            <input class="input100 input-dangky" type="text" name="name">
+                                            <span class="focus-input100" data-placeholder="Name"></span>
+                                        </div>
+
+                                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                                            <span class="btn-show-pass">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </span>
+                                            <input class="input100 input-dangky" type="password" name="pass1">
+                                            <span class="focus-input100" data-placeholder="Password"></span>
+                                        </div>
+
+                                        <div class="wrap-input100 validate-input" data-validate="Enter password again">
+                                            <span class="btn-show-pass">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </span>
+                                            <input class="input100 input-dangky" type="password" name="pass2">
+                                            <span class="focus-input100" data-placeholder="Confirm Password"></span>
+                                        </div>
+
+
+                                        <div class="container-login100-form-btn">
+                                            <div class="wrap-login100-form-btn">
+                                                <div class="login100-form-bgbtn"></div>
+                                                <button class="login100-form-btn">
+                                                    Signup
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function dangnhap() {
+            document.getElementById("dangnhap").className = "nav-link active";
+            document.getElementById("dangky").className = "nav-link";
+            document.getElementById("dangnhap-content").className = "tab-pane container active";
+            document.getElementById("dangky-content").className = "tab-pane container fade";
+        }
+        function dangky() {
+            document.getElementById("dangnhap").className = "nav-link";
+            document.getElementById("dangky").className = "nav-link active";
+            document.getElementById("dangnhap-content").className = "tab-pane container fade";
+            document.getElementById("dangky-content").className = "tab-pane container active";
+        }
+    </script>
+   <script src="../js/main.js"></script>
+</body>
+
+</html>
