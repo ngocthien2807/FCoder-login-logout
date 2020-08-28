@@ -9,7 +9,7 @@ exports.login = function (req, res) {
     var post = req.body;
     var user = post.user;
     var pass = post.pass;
-    var sql = "SELECT `id`, `name` FROM `account` WHERE username=? AND password=MD5(?)"
+    var sql = "SELECT `id`, `name` FROM `account` WHERE username=? AND pass=MD5(?)"
     db.query(sql, [user, pass], function (err, results) {
         if (err) console.log(err);
         if (results.length == 0) {
@@ -29,8 +29,8 @@ exports.signup = function (req, res) {
     var pass2 = post.pass2;
 
     if (pass1 == pass2) {
-        var sql = "INSERT INTO `account`(`id`, `username`, `password`, `name`, `deleted`) VALUES (null,?,MD5(?),?,0)"
-        db.query(sql, [email, pass1, name], function (err) {
+        var sql = "INSERT INTO `account`(`id`, `name`, `username`, `pass`) VALUES (null,?,?,MD5(?))"
+        db.query(sql, [name, email, pass1], function (err) {
             if (err) console.log(err);
             else {
                 res.redirect('/');
